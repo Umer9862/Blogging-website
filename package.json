@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "blog-website",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "umer farooq",
+  "license": "ISC",
+  "description": "this is a simple blog website that allows user to see and make simple blogs"
+}

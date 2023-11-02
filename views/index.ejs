@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Welcome to the Blog</h1>
+
+    <% if (blogPosts.length > 0) { %>
+        <h2>All Blog Entries</h2>
+        <ul>
+            <% blogPosts.forEach(post => { %>
+                <li>
+                    <h3><%= post.heading %></h3>
+                    <% if (post.content.length > 100) { %>
+                        <!-- Content is greater than 100 characters, so truncate it and provide a "Read More" link -->
+                        <p><%= post.content.slice(0, 100) %>... <a href="/view/<%= post.id %>">Read More</a>
+                        </p>
+                    <% } else { %>
+                        <!-- Content is 100 characters or less, display it as is -->
+                        <p><%= post.content %></p>
+                    <% } %>
+                    
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No blog posts yet.</p>
+    <% } %>
+
+    <a href="/create-blog">Create a new blog</a>
+</body>
+</html>
