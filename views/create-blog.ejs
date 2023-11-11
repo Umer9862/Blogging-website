@@ -1,20 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create a Blog</title>
-</head>
-<body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jost&family=Lato:wght@700&family=Pacifico&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&family=Urbanist:wght@400;500;600;700&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        background-color: #fff; /* White background */
+        font-family: "Urbanist", sans-serif;
+        color: #333;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        color: #ec8f5e; /* Orange heading color */
+        text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
+        margin-top: 3rem;
+      }
+
+      form {
+        text-align: center;
+        margin: auto;
+        margin-top: 5rem;
+      }
+
+      #heading {
+        padding: 1rem;
+        font-size: 2.3rem;
+        margin-bottom: 0.6rem;
+        width: auto;
+        border-radius: 7px;
+        background-color: #e09e47; /* Orange heading background */
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        border: none;
+        color: #fff; /* White text color */
+      }
+
+      textarea,
+      input {
+        padding: 1rem;
+        font-size: 2rem;
+        border-radius: 7px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        border-radius: 4px;
+        width: 356px;
+        margin: 2rem auto;
+        background-color: #e09e47; /* Soft orange background */
+        border: none;
+        color: #301e67; /* Dark purple text color */
+      }
+
+      .button-32 {
+        background-color: #ec8f5e; /* Orange button background */
+        border-radius: 12px;
+        color: #fff; /* White button text color */
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px 15px;
+        text-align: center;
+        transition: background-color 0.3s ease-in-out;
+        width: 20rem;
+        box-sizing: border-box;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
+      .button-32:hover,
+      .button-32:focus {
+        background-color: #5b8fb9; /* Hover color */
+      }
+
+      .button-32:disabled {
+        filter: saturate(0.2) opacity(0.5);
+        -webkit-filter: saturate(0.2) opacity(0.5);
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Create a Blog</h1>
-    <form action="/create" method="post">
-        <label for="heading">Heading:</label>
-        <input type="text" id="heading" name="heading" required><br>
+    <div class="container">
+      <form action="/create" method="post">
+        <input
+          type="text"
+          id="heading"
+          name="heading"
+          required
+          placeholder="Heading"
+        /><br />
 
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" rows="4" required></textarea><br>
+        <textarea
+          id="content"
+          name="content"
+          rows="4"
+          required
+          placeholder="Content"
+        ></textarea
+        ><br />
 
-        <input type="submit" value="Create Blog">
-    </form>
-</body>
+        <input type="submit" value="Create Blog" class="button-32" />
+      </form>
+    </div>
+  </body>
 </html>

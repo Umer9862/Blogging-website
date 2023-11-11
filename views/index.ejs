@@ -1,35 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog</title>
-</head>
-<body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jost&family=Lato:wght@700&family=Pacifico&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&family=Urbanist:wght@400;500;600;700&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        background-color: #fff; /* White background */
+        font-family: "Urbanist", sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      h1 {
+        color: #ec8f5e; /* Orange heading color */
+        font-size: 4rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 2rem;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #5b5b5b; /* Dark gray heading color */
+        text-align: center;
+      }
+
+      a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white; /* Orange link color */
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      a:hover {
+        color: #f3b664; /* Hover color */
+      }
+
+      a:active {
+        color: #f3b664; /* Active color */
+      }
+
+      a:visited {
+        color: #ec8f5e; /* Visited link color */
+      }
+
+      #heading {
+        color: #ec8f5e; /* Orange heading color */
+        font-size: 4rem;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 2rem;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+      }
+
+      h3 {
+        margin-top: 2rem;
+        color: #ec8f5e; /* Updated to orange */
+        font-size: 2.5rem;
+        font-family: "Quicksand", sans-serif;
+        text-align: center;
+      }
+
+      p {
+        margin-top: 0.8rem;
+        color: #555;
+        font-size: 1.8rem;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      p::first-letter {
+        font-size: 2.7rem;
+        color: orange;
+        text-shadow: 2px 2px 1px black;
+        font-family: "Urbanist";
+        font-weight: 700;
+      }
+
+      .second-blog {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 3rem auto;
+        padding: 1rem;
+        text-align: center;
+        background-color: #ec8f5e; /* Orange background */
+        color: #fff; /* White text color */
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .second-blog:hover {
+        background-color: #f3b664; /* Hover color */
+      }
+    </style>
+  </head>
+  <body>
     <h1>Welcome to the Blog</h1>
 
     <% if (blogPosts.length > 0) { %>
-        <h2>All Blog Entries</h2>
-        <ul>
-            <% blogPosts.forEach(post => { %>
-                <li>
-                    <h3><%= post.heading %></h3>
-                    <% if (post.content.length > 100) { %>
-                        <!-- Content is greater than 100 characters, so truncate it and provide a "Read More" link -->
-                        <p><%= post.content.slice(0, 100) %>... <a href="/view/<%= post.id %>">Read More</a>
-                        </p>
-                    <% } else { %>
-                        <!-- Content is 100 characters or less, display it as is -->
-                        <p><%= post.content %></p>
-                    <% } %>
-                    
-                </li>
-            <% }); %>
-        </ul>
+    <h2 id="heading">All Blog Entries</h2>
+    <ul>
+      <% blogPosts.forEach(post => { %>
+      <li>
+        <h3><%= post.heading %></h3>
+        <% if (post.content.length > 100) { %>
+        <!-- Content is greater than 100 characters, so truncate it and provide a "Read More" link -->
+        <p>
+          <%= post.content.slice(0, 100) %>...
+          <a href="/view/<%= post.id %>">Read More</a>
+        </p>
+        <% } else { %>
+        <!-- Content is 100 characters or less, display it as is -->
+        <p><%= post.content %></p>
+        <% } %>
+      </li>
+      <% }); %>
+    </ul>
     <% } else { %>
-        <p>No blog posts yet.</p>
+    <h2>No blog posts yet.</h2>
     <% } %>
-
-    <a href="/create-blog">Create a new blog</a>
-</body>
+    <a href="/create-blog" class="second-blog">Create a new blog</a>
+  </body>
 </html>
